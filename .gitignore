@@ -2,4 +2,6 @@
 .vscode
 
 #env
-.env
+*.env
+
+*.sql
