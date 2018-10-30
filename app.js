@@ -5,14 +5,18 @@ const bodyParser  = require('body-parser');
 const app         = express();
                     require('dotenv').config();
 
-const PORT          = process.env.PORT || 3000;
-
-
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 app.use(()=>{
 
+});
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+  res.header('Access-Control-Allow-Header', 'Origin, X-Requested-With, Content-Type, Authorization');
+  next();
 });
 
 app.use('/', (req,res)=>{
@@ -22,6 +26,4 @@ app.use('/', (req,res)=>{
   }).status(404);
 });
 
-app.listen(PORT,()=>{
-  console.log(`Server running in port ${PORT}`);
-});
+module.exports = app;
