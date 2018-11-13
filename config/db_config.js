@@ -1,11 +1,10 @@
-const mysql         = require('anytv-node-mysql');
-                      require('dotenv').config();
+'use strict';
+require('./config').config;
 
-mysql.add('criminal_db',{
-  host : process.env.MYSQL_HOST,
-  user : process.env.MYSQL_USER,
-  password : process.env.MYSQL_PASSWORD,
-  database : process.env.MYSQL_DATABASE
-});
-
-exports.module = mysql;
+const MASTER_DB = {
+  host : MYSQL_HOST || 'localhost',
+  user : MYSQL_USER || 'root',
+  password : MYSQL_PASSWORD || '12345',
+  database : MYSQL_DATABASE || 'criminal_watch_db'
+};
+module.exports = MASTER_DB;

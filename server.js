@@ -1,7 +1,8 @@
+'use strict';
+
 const app               = require('./app.js');
 const http              = require('http');
-                          require('dotenv').config();
-const PORT              = process.env.PORT || 3000;
+                          require('./config/config').config;
 
 let server = http.createServer(app);
 
