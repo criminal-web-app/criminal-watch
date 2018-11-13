@@ -123,18 +123,18 @@ const createUser = (req,res,next)=>{
                             ${data.role_id},\
                             NOW(),\
                             ${null})`,
-                // [
-                //     uuidv4,
-                //     data.first_name,
-                //     data.last_name,
-                //     data.username,
-                //     data.email,
-                //     data.password,
-                //     data.phone_number,
-                //     data.role_id,
-                //     data.created,
-                //     null
-                // ],
+                [
+                    uuidv4,
+                    data.first_name,
+                    data.last_name,
+                    data.username,
+                    data.email,
+                    data.password,
+                    data.phone_number,
+                    data.role_id,
+                    data.created,
+                    null
+                ],
                 send_response
             )
             .end();
